@@ -60,12 +60,12 @@ function check_product()
         return
     fi
 
-    if (echo -n $1 | grep -q -e "^aokp_") ; then
-       AOKP_PRODUCT=$(echo -n $1 | sed -e 's/^aokp_//g')
+    if (echo -n $1 | grep -q -e "^aokpub_") ; then
+       AOKPUB_PRODUCT=$(echo -n $1 | sed -e 's/^aokpub_//g')
     else
-       AOKP_PRODUCT=
+       AOKPUB_PRODUCT=
     fi
-      export AOKP_PRODUCT
+      export AOKPUB_PRODUCT
 
     CALLED_FROM_SETUP=true BUILD_SYSTEM=build/core \
         TARGET_PRODUCT=$1 \
@@ -503,7 +503,7 @@ function breakfast()
             lunch $target
         else
             # This is probably just the AOKP model name
-            lunch aokp_$target-userdebug
+            lunch aokpub_$target-userdebug
         fi
     fi
     return $?
